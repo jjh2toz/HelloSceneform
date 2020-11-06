@@ -35,6 +35,8 @@ import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.HitTestResult;
 import com.google.ar.sceneform.Scene;
+import com.google.ar.sceneform.math.Vector3;
+import com.google.ar.sceneform.rendering.Color;
 import com.google.ar.sceneform.rendering.MaterialFactory;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.rendering.PlaneRenderer;
@@ -145,11 +147,12 @@ public class HelloSceneformActivity extends AppCompatActivity {
         Texture.Sampler sampler = Texture.Sampler.builder()
                 .setMinFilter(Texture.Sampler.MinFilter.LINEAR)
                 .setMagFilter(Texture.Sampler.MagFilter.LINEAR)
+                .setWrapMode(Texture.Sampler.WrapMode.REPEAT)
                 .build();
 
         // Build texture with sampler
         CompletableFuture<Texture> trigrid = Texture.builder()
-                .setSource(this, R.drawable.puddle)
+                .setSource(this, R.drawable.yellow)
                 .setSampler(sampler).build();
 
         // Set plane texture
@@ -158,6 +161,9 @@ public class HelloSceneformActivity extends AppCompatActivity {
                 .getMaterial()
                 .thenAcceptBoth(trigrid, (material, texture) -> {
                     material.setTexture(PlaneRenderer.MATERIAL_TEXTURE, texture);
+//                    material.setFloat3(PlaneRenderer.MATERIAL_COLOR, new Color(1.0f, 1.0f, 0.9f, 1.0f));
+//                    material.setFloat2(PlaneRenderer.MATERIAL_UV_SCALE, 50.0f, 50.0f);
+//                    material.setFloat(PlaneRenderer.MATERIAL_SPOTLIGHT_RADIUS, Float.MAX_VALUE);
                 });
 
     }
