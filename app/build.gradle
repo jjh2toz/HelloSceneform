@@ -75,3 +75,12 @@ sceneform.asset('sampledata/models/chuteira.fbx',
         'sampledata/models/chuteira.sfa',
         'src/main/res/raw/chuteira')
 
+sceneform.asset('sampledata/wolves.obj', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/wolves.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/wolves')      // '.sfb Output Path' specified during import.
+
+sceneform.asset('sampledata/monster.obj', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/monster.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/monster')      // '.sfb Output Path' specified during import.
